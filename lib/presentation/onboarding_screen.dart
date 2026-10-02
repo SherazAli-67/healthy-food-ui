@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthy_food_ui/constants/number_constant.dart';
 import 'package:healthy_food_ui/constants/string_const.dart';
 import 'package:healthy_food_ui/core/app_colors.dart';
 import 'package:healthy_food_ui/core/app_textstyles.dart';
 import 'package:healthy_food_ui/core/asset_res.dart';
+import 'package:healthy_food_ui/routing/router.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -38,7 +40,7 @@ class OnboardingScreen extends StatelessWidget {
                     crossAxisAlignment: .center,
                     children: [
                       _buildPageIndicator(),
-                      _buildNextCta(),
+                      _buildNextCta(context),
                     ],
                   ),
                 ],
@@ -95,9 +97,9 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNextCta() {
+  Widget _buildNextCta(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => context.go(NamedRoutes.home.routeName),
       child: Container(
         decoration: BoxDecoration(
           shape: .circle,

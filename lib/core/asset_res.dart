@@ -12,4 +12,5 @@ class AssetRes {
   static const nutsSeedsCategory = 'assets/images/nuts_seeds_category.png';
   static const proteinCategory = 'assets/images/protein_category.png';
   static const proteinShakesCategory = 'assets/images/protein_shakes_category.png';
+  static const profileAvatar = 'assets/images/profile_avatar.png';
 }

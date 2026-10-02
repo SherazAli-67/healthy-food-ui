@@ -4,10 +4,16 @@ class NumberConstant {
 
   static const homeTopPadding = 40.0;
   static const homeBottomPadding = 16.0;
-  static const homeSectionSpacing = 20.0;
-  static const homeHeaderSpacing = 17.0;
-  static const categoryRowSpacing = 10.0;
+  static const homeSectionSpacing = 24.0;
+  static const homeHeaderToSearchSpacing = 20.0;
+  static const homeSearchToCategorySpacing = 30.0;
+  static const homeHeaderRowSpacing = 10.0;
+  static const categorySectionSpacing = 10.0;
+  static const searchRowSpacing = 20.0;
   static const foodCardListSpacing = 50.0;
+  static const foodCardContentSpacing = 8.0;
+  static const foodCardTextWidth = 175.0;
+  static const kcalRowSpacing = 2.0;
 
   static const avatarSize = 42.0;
   static const searchFieldHeight = 40.0;
@@ -20,6 +26,7 @@ class NumberConstant {
 
   static const categorySize = 60.0;
   static const categoryImageSize = 55.0;
+  static const categoryBorderWidth = 2.5;
   static const categoryLabelSpacing = 10.0;
 
   static const foodCardHeight = 160.0;

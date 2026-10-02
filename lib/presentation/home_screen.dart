@@ -1,0 +1,236 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:healthy_food_ui/constants/number_constant.dart';
+import 'package:healthy_food_ui/constants/string_const.dart';
+import 'package:healthy_food_ui/core/app_colors.dart';
+import 'package:healthy_food_ui/core/app_data.dart';
+import 'package:healthy_food_ui/core/app_textstyles.dart';
+import 'package:healthy_food_ui/core/asset_res.dart';
+import 'package:healthy_food_ui/core/models/food_category.dart';
+import 'package:healthy_food_ui/core/models/food_item.dart';
+import 'package:healthy_food_ui/presentation/widgets/meal_type_badge.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.whiteColor,
+      body: SafeArea(
+        child: Padding(
+          padding: .fromLTRB(NumberConstant.horizontalPadding, NumberConstant.homeTopPadding, NumberConstant.horizontalPadding, 0),
+          child: Column(
+            spacing: NumberConstant.homeSectionSpacing,
+            children: [
+              Column(
+                spacing: NumberConstant.homeHeaderToSearchSpacing,
+                children: [
+                  _buildHeader(),
+                  Column(
+                    spacing: NumberConstant.homeSearchToCategorySpacing,
+                    children: [
+                      _buildSearchRow(),
+                      _buildCategorySection(),
+                    ],
+                  ),
+                ],
+              ),
+              Expanded(child: _buildFoodList()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Row(
+      spacing: NumberConstant.homeHeaderRowSpacing,
+      children: [
+        ClipOval(
+          child: Image.asset(
+            AssetRes.profileAvatar,
+            width: NumberConstant.avatarSize,
+            height: NumberConstant.avatarSize,
+            fit: .cover,
+          ),
+        ),
+        Text(StringConst.helloSara, style: AppTextStyles.greeting),
+        Text(StringConst.waveEmoji, style: AppTextStyles.greeting),
+        const Spacer(),
+        SvgPicture.asset(AssetRes.icDrawerMenu),
+      ],
+    );
+  }
+
+  Widget _buildSearchRow() {
+    return Row(
+      spacing: NumberConstant.searchRowSpacing,
+      children: [
+        Expanded(
+          child: Container(
+            height: NumberConstant.searchFieldHeight,
+            decoration: BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: .circular(NumberConstant.searchFieldRadius),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.searchShadowColor,
+                  blurRadius: NumberConstant.searchShadowBlur,
+                  offset: Offset(0, NumberConstant.searchShadowOffsetY),
+                ),
+              ],
+            ),
+            alignment: .centerLeft,
+            padding: .symmetric(horizontal: NumberConstant.foodCardPadding),
+            child: const TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                isDense: true,
+                contentPadding: .zero,
+              ),
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.primaryGreenColor,
+            borderRadius: .circular(NumberConstant.searchButtonRadius),
+          ),
+          padding: .symmetric(
+            horizontal: NumberConstant.searchButtonHorizontalPadding,
+            vertical: NumberConstant.searchButtonVerticalPadding,
+          ),
+          child: SvgPicture.asset(AssetRes.icSearch),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCategorySection() {
+    return Column(
+      spacing: NumberConstant.categorySectionSpacing,
+      crossAxisAlignment: .start,
+      children: [
+        Text(StringConst.foodCategory, style: AppTextStyles.sectionTitle),
+        Row(
+          mainAxisAlignment: .spaceBetween,
+          children: AppData.categories.map(_buildCategoryItem).toList(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCategoryItem(FoodCategory category) {
+    return Column(
+      spacing: NumberConstant.categoryLabelSpacing,
+      children: [
+        Container(
+          width: NumberConstant.categorySize,
+          height: NumberConstant.categorySize,
+          decoration: BoxDecoration(
+            shape: .circle,
+            border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.categoryBorderWidth),
+          ),
+          alignment: .center,
+          child: ClipOval(
+            child: Image.asset(
+              category.image,
+              width: NumberConstant.categoryImageSize,
+              height: NumberConstant.categoryImageSize,
+              fit: .cover,
+            ),
+          ),
+        ),
+        Text(category.name, style: AppTextStyles.categoryLabel),
+      ],
+    );
+  }
+
+  Widget _buildFoodList() {
+    return SingleChildScrollView(
+      padding: .only(top: NumberConstant.foodCardImageOverlap, bottom: NumberConstant.homeBottomPadding),
+      child: Column(
+        spacing: NumberConstant.foodCardListSpacing,
+        children: AppData.foodItems.map(_buildFoodCard).toList(),
+      ),
+    );
+  }
+
+  Widget _buildFoodCard(FoodItem item) {
+    return SizedBox(
+      height: NumberConstant.foodCardHeight,
+      child: Stack(
+        clipBehavior: .none,
+        children: [
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: .circular(NumberConstant.foodCardRadius),
+                border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.foodCardBorderWidth),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.cardShadowColor,
+                    blurRadius: NumberConstant.foodCardShadowBlur,
+                    offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
+                  ),
+                ],
+              ),
+              padding: .all(NumberConstant.foodCardPadding),
+              child: Column(
+                crossAxisAlignment: .start,
+                children: [
+                  MealTypeBadge(label: item.mealType),
+                  const Spacer(),
+                  SizedBox(
+                    width: NumberConstant.foodCardTextWidth,
+                    child: Column(
+                      spacing: NumberConstant.foodCardContentSpacing,
+                      crossAxisAlignment: .start,
+                      children: [
+                        Text(item.title, style: AppTextStyles.foodCardTitle),
+                        Text(item.subtitle, style: AppTextStyles.foodCardSubtitle),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: .centerRight,
+                    child: Row(
+                      mainAxisSize: .min,
+                      spacing: NumberConstant.kcalRowSpacing,
+                      children: [
+                        SvgPicture.asset(AssetRes.icCalories),
+                        Text('${item.kcal} ${StringConst.kcalUnit}', style: AppTextStyles.kcalLabel),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: -NumberConstant.foodCardImageOverlap,
+            right: 0,
+            child: Container(
+              width: NumberConstant.foodCardImageSize,
+              height: NumberConstant.foodCardImageSize,
+              decoration: BoxDecoration(
+                shape: .circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.foodImageShadowColor,
+                    blurRadius: NumberConstant.foodCardShadowBlur,
+                    offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
+                  ),
+                ],
+                image: DecorationImage(image: AssetImage(item.image), fit: .cover),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
