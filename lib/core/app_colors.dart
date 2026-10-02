@@ -13,4 +13,5 @@ class AppColors {
   static const foodImageShadowColor = Color(0x73474747);
   static const sheetShadowColor = Color(0x40000000);
   static const indicatorInactiveColor = Color(0xFF3A3A3A);
+  static const deliveryChipColor = Color(0x99FFFFFF);
 }

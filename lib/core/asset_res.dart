@@ -1,8 +1,10 @@
 class AssetRes {
   static const icArrowNext = 'assets/icons/ic_arrow_next.svg';
+  static const icArrowBack = 'assets/icons/ic_arrow_back.svg';
   static const icCalories = 'assets/icons/ic_calories.svg';
   static const icDrawerMenu = 'assets/icons/ic_drawer_menu.svg';
   static const icSearch = 'assets/icons/ic_search.svg';
+  static const icRatingStars = 'assets/icons/ic_rating_stars.svg';
 
   static const onboardingImg = 'assets/images/onboarding_img.png';
   static const frenchGreenSaladImg = 'assets/images/french_green_salad_img.png';

@@ -59,22 +59,27 @@ class NumberConstant {
   static const detailSheetShadowBlur = 40.0;
   static const detailSheetShadowOffsetY = -3.0;
   static const detailContentSpacing = 12.0;
+  static const detailTopPadding = 8.0;
+  static const detailSheetPadding = 20.0;
+  static const detailTitleRowSpacing = 12.0;
+  static const detailHeroOutlineStrokeWidth = 1.2;
   static const detailHeroImageShadowBlur = 15.0;
   static const detailHeroImageShadowOffsetY = 10.0;
-  static const starSize = 16.0;
-  static const starSpacing = 1.0;
+  static const detailHeroTitleToImageSpacing = 40.0;
+  static const detailRatingSpacing = 10.0;
+  static const detailPricingSpacing = 16.0;
 
   static const pricingCardHeight = 137.0;
   static const pricingCardRadius = 20.0;
   static const pricingCardPadding = 15.0;
   static const deliveryChipHorizontalPadding = 12.0;
-  static const deliveryChipVerticalPadding = 6.0;
+  static const deliveryChipVerticalPadding = 10.0;
   static const deliveryChipRadius = 10.0;
 
   static const paymentButtonHeight = 70.0;
   static const paymentButtonRadius = 10.0;
   static const paymentButtonPadding = 10.0;
-  static const paymentArrowChipWidth = 91.0;
-  static const paymentArrowChipHeight = 50.0;
+  static const paymentArrowChipHorizontalPadding = 24.0;
+  static const paymentArrowChipVerticalPadding = 15.0;
   static const paymentArrowChipRadius = 10.0;
 }
