@@ -8,7 +8,7 @@ class AppTextStyles {
     fontWeight: .w700,
     fontSize: 60,
     color: AppColors.whiteColor,
-    height: 1,
+    height: 1.35,
   );
 
   static const onboardingHeroAccent = TextStyle(
@@ -16,7 +16,7 @@ class AppTextStyles {
     fontWeight: .w700,
     fontSize: 60,
     color: AppColors.primaryGreenColor,
-    height: 1,
+    height: 1.35,
   );
 
   static const greeting = TextStyle(

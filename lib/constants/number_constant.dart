@@ -36,11 +36,16 @@ class NumberConstant {
 
   static const onboardingCtaSize = 71.0;
   static const onboardingCtaBorderWidth = 1.0;
+  static const onboardingCtaHorizontalPadding = 14.0;
+  static const onboardingCtaVerticalPadding = 25.5;
   static const onboardingIndicatorActiveWidth = 35.0;
-  static const onboardingIndicatorInactiveSize = 8.0;
+  static const onboardingIndicatorInactiveSize = 12.0;
+  static const onboardingIndicatorHeight = 12.0;
   static const onboardingIndicatorSpacing = 6.0;
   static const onboardingBottomPadding = 40.0;
   static const onboardingContentSpacing = 24.0;
+  static const onboardingImageFlex = 5;
+  static const onboardingContentFlex = 5;
 
   static const detailHeroImageSize = 218.0;
   static const detailSheetRadius = 40.0;
