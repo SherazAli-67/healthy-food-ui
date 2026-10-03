@@ -52,12 +52,16 @@ class HomeScreen extends StatelessWidget {
       children: [
         ClipOval(
           //profileAvatar, height-width:avatarSize
-          child: const SizedBox()
+          child: Image.asset(AssetRes.profileAvatar, height: NumberConstant.avatarSize,)
         ),
+
         //helloSheraz, greeting
-        //waveEmoji, greetin
+        Text(StringConst.helloSheraz, style: AppTextStyles.greeting,),
+        //waveEmoji, greeting
+        Text(StringConst.waveEmoji, style: AppTextStyles.greeting,),
         const Spacer(),
         //icDrawerMenu
+        SvgPicture.asset(AssetRes.icDrawerMenu)
       ],
     );
   }
@@ -71,14 +75,14 @@ class HomeScreen extends StatelessWidget {
             height: NumberConstant.searchFieldHeight,
             decoration: BoxDecoration(
               color: AppColors.whiteColor,
-              /*borderRadius: .circular(NumberConstant.searchFieldRadius),
+              borderRadius: .circular(NumberConstant.searchFieldRadius),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.searchShadowColor,
                   blurRadius: NumberConstant.searchShadowBlur,
                   offset: Offset(0, NumberConstant.searchShadowOffsetY),
                 ),
-              ],*/
+              ],
             ),
             alignment: .centerLeft,
             padding: .symmetric(horizontal: NumberConstant.foodCardPadding),
@@ -95,13 +99,15 @@ class HomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             // color: AppColors.primaryGreenColor,
             // borderRadius: .circular(NumberConstant.searchButtonRadius),
+            color: AppColors.primaryGreenColor, 
+            borderRadius: .circular(NumberConstant.searchButtonRadius)
           ),
           padding: .symmetric(
             horizontal: NumberConstant.searchButtonHorizontalPadding,
             vertical: NumberConstant.searchButtonVerticalPadding,
           ),
           //icSearch
-          child: const SizedBox()
+          child: SvgPicture.asset(AssetRes.icDrawerMenu)
         ),
       ],
     );
@@ -113,6 +119,7 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: .start,
       children: [
         //foodCategory, sectionTitle
+        Text(StringConst.foodCategory, style: AppTextStyles.sectionTitle,),
         Row(
           mainAxisAlignment: .spaceBetween,
           children: AppData.categories.map(_buildCategoryItem).toList(),
@@ -128,18 +135,21 @@ class HomeScreen extends StatelessWidget {
         Container(
           // width: NumberConstant.categorySize,
           // height: NumberConstant.categorySize,
+          width: NumberConstant.categorySize,
+          height: NumberConstant.categorySize,
           decoration: BoxDecoration(
             shape: .circle,
-            // border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.categoryBorderWidth),
+            border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.categoryBorderWidth),
           ),
           alignment: .center,
           child: ClipOval(
 
             //category.image, width-height: categoryImageSize
-            child: const SizedBox()
+            child: Image.asset(category.image, height: NumberConstant.categoryImageSize,)
           ),
         ),
         //category.name, categoryLabel
+        Text(category.name, style: AppTextStyles.categoryLabel,)
       ],
     );
   }
@@ -166,7 +176,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
-                 /* borderRadius: .circular(NumberConstant.foodCardRadius),
+                  borderRadius: .circular(NumberConstant.foodCardRadius),
                   border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.foodCardBorderWidth),
                   boxShadow: [
                     BoxShadow(
@@ -174,13 +184,14 @@ class HomeScreen extends StatelessWidget {
                       blurRadius: NumberConstant.foodCardShadowBlur,
                       offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
                     ),
-                  ],*/
+                  ],
                 ),
                 padding: .all(NumberConstant.foodCardPadding),
                 child: Column(
                   crossAxisAlignment: .start,
                   children: [
                     //MealTypeBadge: item.mealType
+                    MealTypeBadge(label: item.mealType),
                     const Spacer(),
                     Row(
                       crossAxisAlignment: .end,
@@ -191,7 +202,9 @@ class HomeScreen extends StatelessWidget {
                             crossAxisAlignment: .start,
                             children: [
                               //item.title, foodCardTitle,
+                              Text(item.title, style: AppTextStyles.foodCardTitle,),
                               //item.subtitle, foodCardSubtitle
+                              Text(item.subtitle, style: AppTextStyles.foodCardSubtitle,)
                              ],
                           ),
                         ),
@@ -201,7 +214,9 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: .end,
                           children: [
                             //icCalories
-                            //${item.kcal} ${StringConst.kcalUnit}, kcalLabel
+                            SvgPicture.asset(AssetRes.icCalories),
+                            //, kcalLabel
+                            Text('${item.kcal} ${StringConst.kcalUnit}', style: AppTextStyles.kcalLabel,)
                           ],
                         ),
                       ],
@@ -211,22 +226,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              // top: -NumberConstant.foodCardImageOverlap,
+              top: -NumberConstant.foodCardImageOverlap,
               right: 0,
               child: Container(
-                // width: NumberConstant.foodCardImageSize,
-                // height: NumberConstant.foodCardImageSize,
+                width: NumberConstant.foodCardImageSize,
+                height: NumberConstant.foodCardImageSize,
                 decoration: BoxDecoration(
                   shape: .circle,
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //     color: AppColors.foodImageShadowColor.withValues(alpha: 0.1),
-                  //     blurRadius: NumberConstant.foodCardShadowBlur,
-                  //     offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
-                  //   ),
-                  // ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.foodImageShadowColor.withValues(alpha: 0.1),
+                      blurRadius: NumberConstant.foodCardShadowBlur,
+                      offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
+                    ),
+                  ],
 
-                  // image: DecorationImage(image: AssetImage(item.image), fit: .cover),
+                  image: DecorationImage(image: AssetImage(item.image), fit: .cover),
                 ),
               ),
             ),

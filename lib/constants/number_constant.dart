@@ -54,6 +54,14 @@ class NumberConstant {
   static const onboardingImageFlex = 5;
   static const onboardingContentFlex = 5;
 
+  static const animOnboardingMs = 1100;
+  static const animOnboardingSlideY = 24.0;
+  static const animOnboardingImageScaleBegin = 0.96;
+  static const animPressScale = 0.92;
+  static const animPressMs = 120;
+  static const animPageTransitionMs = 400;
+  static const animPageSlideY = 0.04;
+
   static const detailHeroImageSize = 218.0;
   static const detailSheetRadius = 40.0;
   static const detailSheetShadowBlur = 40.0;
