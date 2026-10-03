@@ -58,9 +58,14 @@ class NumberConstant {
   static const animOnboardingSlideY = 24.0;
   static const animOnboardingImageScaleBegin = 0.96;
   static const animPressScale = 0.92;
+  static const animCardPressScale = 0.98;
+  static const animCategorySelectedScale = 1.06;
   static const animPressMs = 120;
   static const animPageTransitionMs = 400;
   static const animPageSlideY = 0.04;
+  static const animHomeMs = 1100;
+  static const animHomeSlideY = 20.0;
+  static const animHomeCardStagger = 0.08;
 
   static const detailHeroImageSize = 218.0;
   static const detailSheetRadius = 40.0;
