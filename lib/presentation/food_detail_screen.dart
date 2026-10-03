@@ -77,7 +77,7 @@ class FoodDetailScreen extends StatelessWidget {
               shape: .circle,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.cardShadowColor,
+                  color: AppColors.cardShadowColor.withValues(alpha: 0.1),
                   blurRadius: NumberConstant.detailHeroImageShadowBlur,
                   offset: Offset(0, NumberConstant.detailHeroImageShadowOffsetY),
                 ),
@@ -126,9 +126,29 @@ class FoodDetailScreen extends StatelessWidget {
         crossAxisAlignment: .start,
         spacing: NumberConstant.detailContentSpacing,
         children: [
-          _buildTitleRow(),
-          Text(item.description, style: AppTextStyles.detailDescription),
-          Text(StringConst.readMore, style: AppTextStyles.readMore),
+          Row(
+            spacing: 14,
+            crossAxisAlignment: .start,
+            children: [
+              Expanded(child: Column(
+
+                crossAxisAlignment: .start,
+                children: [
+                  Text(item.title, style: AppTextStyles.detailTitle),
+                  RichText(text: TextSpan(
+                    text: '${item.description} ', style: AppTextStyles.detailDescription.copyWith(fontFamily: StringConst.appFontFamily, color: Colors.black.withValues(alpha: 0.7)),
+                    children: [
+                      TextSpan(
+                        text: 'Read More',
+                        style: AppTextStyles.readMore.copyWith(fontFamily: StringConst.appFontFamily, color: Colors.black.withValues(alpha: 0.5), decoration: .underline)
+                      )
+                    ]
+                  ))
+                ],
+              )),
+              MealTypeBadge(label: 'Breakfast')
+            ],
+          ),
           _buildRatingRow(),
           _buildPricingCard(),
           const Spacer(),
@@ -138,15 +158,6 @@ class FoodDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleRow() {
-    return Row(
-      spacing: NumberConstant.detailTitleRowSpacing,
-      children: [
-        Expanded(child: Text(item.title, style: AppTextStyles.detailTitle)),
-        MealTypeBadge(label: item.mealType),
-      ],
-    );
-  }
 
   Widget _buildRatingRow() {
     return Row(

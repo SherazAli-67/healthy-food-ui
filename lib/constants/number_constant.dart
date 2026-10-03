@@ -72,7 +72,7 @@ class NumberConstant {
   static const pricingCardHeight = 137.0;
   static const pricingCardRadius = 20.0;
   static const pricingCardPadding = 15.0;
-  static const deliveryChipHorizontalPadding = 12.0;
+  static const deliveryChipHorizontalPadding = 23.5;
   static const deliveryChipVerticalPadding = 10.0;
   static const deliveryChipRadius = 10.0;
 
