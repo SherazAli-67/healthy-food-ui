@@ -51,17 +51,13 @@ class HomeScreen extends StatelessWidget {
       spacing: NumberConstant.homeHeaderRowSpacing,
       children: [
         ClipOval(
-          child: Image.asset(
-            AssetRes.profileAvatar,
-            width: NumberConstant.avatarSize,
-            height: NumberConstant.avatarSize,
-            fit: .cover,
-          ),
+          //profileAvatar, height-width:avatarSize
+          child: const SizedBox()
         ),
-        Text(StringConst.helloSheraz, style: AppTextStyles.greeting),
-        Text(StringConst.waveEmoji, style: AppTextStyles.greeting),
+        //helloSheraz, greeting
+        //waveEmoji, greetin
         const Spacer(),
-        SvgPicture.asset(AssetRes.icDrawerMenu),
+        //icDrawerMenu
       ],
     );
   }
@@ -75,14 +71,14 @@ class HomeScreen extends StatelessWidget {
             height: NumberConstant.searchFieldHeight,
             decoration: BoxDecoration(
               color: AppColors.whiteColor,
-              borderRadius: .circular(NumberConstant.searchFieldRadius),
+              /*borderRadius: .circular(NumberConstant.searchFieldRadius),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.searchShadowColor,
                   blurRadius: NumberConstant.searchShadowBlur,
                   offset: Offset(0, NumberConstant.searchShadowOffsetY),
                 ),
-              ],
+              ],*/
             ),
             alignment: .centerLeft,
             padding: .symmetric(horizontal: NumberConstant.foodCardPadding),
@@ -97,14 +93,15 @@ class HomeScreen extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-            color: AppColors.primaryGreenColor,
-            borderRadius: .circular(NumberConstant.searchButtonRadius),
+            // color: AppColors.primaryGreenColor,
+            // borderRadius: .circular(NumberConstant.searchButtonRadius),
           ),
           padding: .symmetric(
             horizontal: NumberConstant.searchButtonHorizontalPadding,
             vertical: NumberConstant.searchButtonVerticalPadding,
           ),
-          child: SvgPicture.asset(AssetRes.icSearch),
+          //icSearch
+          child: const SizedBox()
         ),
       ],
     );
@@ -115,7 +112,7 @@ class HomeScreen extends StatelessWidget {
       spacing: NumberConstant.categorySectionSpacing,
       crossAxisAlignment: .start,
       children: [
-        Text(StringConst.foodCategory, style: AppTextStyles.sectionTitle),
+        //foodCategory, sectionTitle
         Row(
           mainAxisAlignment: .spaceBetween,
           children: AppData.categories.map(_buildCategoryItem).toList(),
@@ -129,23 +126,20 @@ class HomeScreen extends StatelessWidget {
       spacing: NumberConstant.categoryLabelSpacing,
       children: [
         Container(
-          width: NumberConstant.categorySize,
-          height: NumberConstant.categorySize,
+          // width: NumberConstant.categorySize,
+          // height: NumberConstant.categorySize,
           decoration: BoxDecoration(
             shape: .circle,
-            border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.categoryBorderWidth),
+            // border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.categoryBorderWidth),
           ),
           alignment: .center,
           child: ClipOval(
-            child: Image.asset(
-              category.image,
-              width: NumberConstant.categoryImageSize,
-              height: NumberConstant.categoryImageSize,
-              fit: .cover,
-            ),
+
+            //category.image, width-height: categoryImageSize
+            child: const SizedBox()
           ),
         ),
-        Text(category.name, style: AppTextStyles.categoryLabel),
+        //category.name, categoryLabel
       ],
     );
   }
@@ -172,7 +166,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
-                  borderRadius: .circular(NumberConstant.foodCardRadius),
+                 /* borderRadius: .circular(NumberConstant.foodCardRadius),
                   border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.foodCardBorderWidth),
                   boxShadow: [
                     BoxShadow(
@@ -180,13 +174,13 @@ class HomeScreen extends StatelessWidget {
                       blurRadius: NumberConstant.foodCardShadowBlur,
                       offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
                     ),
-                  ],
+                  ],*/
                 ),
                 padding: .all(NumberConstant.foodCardPadding),
                 child: Column(
                   crossAxisAlignment: .start,
                   children: [
-                    MealTypeBadge(label: item.mealType),
+                    //MealTypeBadge: item.mealType
                     const Spacer(),
                     Row(
                       crossAxisAlignment: .end,
@@ -196,9 +190,9 @@ class HomeScreen extends StatelessWidget {
                             spacing: NumberConstant.foodCardContentSpacing,
                             crossAxisAlignment: .start,
                             children: [
-                              Text(item.title, style: AppTextStyles.foodCardTitle),
-                              Text(item.subtitle, style: AppTextStyles.foodCardSubtitle),
-                            ],
+                              //item.title, foodCardTitle,
+                              //item.subtitle, foodCardSubtitle
+                             ],
                           ),
                         ),
                         Row(
@@ -206,8 +200,8 @@ class HomeScreen extends StatelessWidget {
                           spacing: NumberConstant.kcalRowSpacing,
                           crossAxisAlignment: .end,
                           children: [
-                            SvgPicture.asset(AssetRes.icCalories),
-                            Text('${item.kcal} ${StringConst.kcalUnit}', style: AppTextStyles.kcalLabel),
+                            //icCalories
+                            //${item.kcal} ${StringConst.kcalUnit}, kcalLabel
                           ],
                         ),
                       ],
@@ -217,21 +211,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: -NumberConstant.foodCardImageOverlap,
+              // top: -NumberConstant.foodCardImageOverlap,
               right: 0,
               child: Container(
-                width: NumberConstant.foodCardImageSize,
-                height: NumberConstant.foodCardImageSize,
+                // width: NumberConstant.foodCardImageSize,
+                // height: NumberConstant.foodCardImageSize,
                 decoration: BoxDecoration(
                   shape: .circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.foodImageShadowColor.withValues(alpha: 0.1),
-                      blurRadius: NumberConstant.foodCardShadowBlur,
-                      offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
-                    ),
-                  ],
-                  image: DecorationImage(image: AssetImage(item.image), fit: .cover),
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: AppColors.foodImageShadowColor.withValues(alpha: 0.1),
+                  //     blurRadius: NumberConstant.foodCardShadowBlur,
+                  //     offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
+                  //   ),
+                  // ],
+
+                  // image: DecorationImage(image: AssetImage(item.image), fit: .cover),
                 ),
               ),
             ),
