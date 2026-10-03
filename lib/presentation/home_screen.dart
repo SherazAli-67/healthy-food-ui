@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
             fit: .cover,
           ),
         ),
-        Text(StringConst.helloSara, style: AppTextStyles.greeting),
+        Text(StringConst.helloSheraz, style: AppTextStyles.greeting),
         Text(StringConst.waveEmoji, style: AppTextStyles.greeting),
         const Spacer(),
         SvgPicture.asset(AssetRes.icDrawerMenu),
@@ -176,7 +176,7 @@ class HomeScreen extends StatelessWidget {
                   border: .all(color: AppColors.primaryGreenColor, width: NumberConstant.foodCardBorderWidth),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.cardShadowColor,
+                      color: AppColors.cardShadowColor.withValues(alpha: 0.1),
                       blurRadius: NumberConstant.foodCardShadowBlur,
                       offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
                     ),
@@ -188,28 +188,30 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     MealTypeBadge(label: item.mealType),
                     const Spacer(),
-                    SizedBox(
-                      width: NumberConstant.foodCardTextWidth,
-                      child: Column(
-                        spacing: NumberConstant.foodCardContentSpacing,
-                        crossAxisAlignment: .start,
-                        children: [
-                          Text(item.title, style: AppTextStyles.foodCardTitle),
-                          Text(item.subtitle, style: AppTextStyles.foodCardSubtitle),
-                        ],
-                      ),
-                    ),
-                    Align(
-                      alignment: .centerRight,
-                      child: Row(
-                        mainAxisSize: .min,
-                        spacing: NumberConstant.kcalRowSpacing,
-                        children: [
-                          SvgPicture.asset(AssetRes.icCalories),
-                          Text('${item.kcal} ${StringConst.kcalUnit}', style: AppTextStyles.kcalLabel),
-                        ],
-                      ),
-                    ),
+                    Row(
+                      crossAxisAlignment: .end,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            spacing: NumberConstant.foodCardContentSpacing,
+                            crossAxisAlignment: .start,
+                            children: [
+                              Text(item.title, style: AppTextStyles.foodCardTitle),
+                              Text(item.subtitle, style: AppTextStyles.foodCardSubtitle),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: .min,
+                          spacing: NumberConstant.kcalRowSpacing,
+                          crossAxisAlignment: .end,
+                          children: [
+                            SvgPicture.asset(AssetRes.icCalories),
+                            Text('${item.kcal} ${StringConst.kcalUnit}', style: AppTextStyles.kcalLabel),
+                          ],
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -224,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                   shape: .circle,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.foodImageShadowColor,
+                      color: AppColors.foodImageShadowColor.withValues(alpha: 0.1),
                       blurRadius: NumberConstant.foodCardShadowBlur,
                       offset: Offset(0, NumberConstant.foodCardShadowOffsetY),
                     ),

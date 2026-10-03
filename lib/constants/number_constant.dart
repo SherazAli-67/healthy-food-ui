@@ -29,14 +29,14 @@ class NumberConstant {
   static const categoryBorderWidth = 2.5;
   static const categoryLabelSpacing = 10.0;
 
-  static const foodCardHeight = 160.0;
+  static const foodCardHeight = 180.0;
   static const foodCardRadius = 20.0;
   static const foodCardBorderWidth = 1.0;
   static const foodCardPadding = 15.0;
   static const foodCardShadowBlur = 10.0;
   static const foodCardShadowOffsetY = 4.0;
-  static const foodCardImageSize = 135.0;
-  static const foodCardImageOverlap = 30.0;
+  static const foodCardImageSize = 160.0;
+  static const foodCardImageOverlap = 40.0;
   static const mealBadgeHorizontalPadding = 11.0;
   static const mealBadgeVerticalPadding = 5.0;
   static const mealBadgeRadius = 5.0;

@@ -10,7 +10,7 @@ class AppColors {
   static const textTertiaryColor = Color(0x80000000);
   static const cardShadowColor = Color(0x594F4F4F);
   static const searchShadowColor = Color(0x408C8B8B);
-  static const foodImageShadowColor = Color(0x73474747);
+  static const foodImageShadowColor = Color(0xff474747);
   static const sheetShadowColor = Color(0x40000000);
   static const indicatorInactiveColor = Color(0xFF3A3A3A);
   static const deliveryChipColor = Color(0x99FFFFFF);

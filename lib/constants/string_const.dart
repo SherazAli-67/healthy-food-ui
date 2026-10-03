@@ -8,7 +8,7 @@ class StringConst {
   static const wellComma = ' Well, ';
   static const wellPeriod = ' Well.';
 
-  static const helloSara = 'Hello Sara';
+  static const helloSheraz = 'Hello Sheraz';
   static const waveEmoji = '👋';
   static const foodCategory = 'Food category';
 
